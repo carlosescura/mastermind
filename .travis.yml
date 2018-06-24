@@ -1,0 +1,22 @@
+sudo: required
+language: python
+services:
+  - docker
+python:
+  - "3.6"
+before_script:
+  - docker-compose build
+script:
+  - docker-compose run --rm web bash -c "flake8 && python wait_for_postgres.py && pytest"
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    # docker login, tag and push images;
+    echo "should be deployed"
+    fi
+
+notifications:
+  email: false
+
+cache:
+  pip: true
