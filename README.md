@@ -124,6 +124,8 @@ and 0 a partial match of color but not position.
 
 You can request the complete list of guesses and its score for a given game using the endpoint `/api/v1/games/{gameID}`
 
+## Documentation
+API documentation can be found in `/docs`
 
 # TODO:
 * Add user attribute to each game and guess and provide private game views

@@ -6,6 +6,7 @@ from django.contrib import admin
 from django.urls import path, include, reverse_lazy, re_path
 from django.views.generic import RedirectView
 from rest_framework.routers import DefaultRouter
+from rest_framework.documentation import include_docs_urls
 
 from .game.views import GameViewSet, GuessViewSet
 
@@ -18,5 +19,8 @@ router.register(r'guess', GuessViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
+    path('docs/', include_docs_urls(title='Mastermind API Documentation',
+                                    authentication_classes=[],
+                                    permission_classes=[])),
     re_path(r'^$', RedirectView.as_view(url=reverse_lazy('api-root'), permanent=False)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
