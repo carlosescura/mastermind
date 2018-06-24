@@ -42,7 +42,7 @@ class Guess(models.Model):
 
     '''
     Overriding the Model save method seems a clearer option to allow the inclusion of the score property in the model
-    on creation time. Other option could have been use the 'default' value as used in Game model for secret_code 
+    on creation time. Other option could have been use the 'default' value as used in Game model for secret_code
     generation.
     '''
     def save(self, *args, **kwargs):

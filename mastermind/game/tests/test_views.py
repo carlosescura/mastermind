@@ -21,4 +21,3 @@ def test_get_single_game(client_factory):
     response = client_factory.get('/api/{}/games/{}/'.format(api_version, game.id))
     assert response.status_code == 200
     assert response.data['id'] == game.id
-
