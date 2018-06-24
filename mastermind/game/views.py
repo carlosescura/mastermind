@@ -1,5 +1,5 @@
 from rest_framework import viewsets, mixins
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from .models import Game, Guess
 from .serializers import GameSerializer, GuessSerializer
 
@@ -14,7 +14,7 @@ class GameViewSet(mixins.RetrieveModelMixin,
     """
     queryset = Game.objects.all().prefetch_related('guesses')
     serializer_class = GameSerializer
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
 
 
 class GuessViewSet(mixins.RetrieveModelMixin,
@@ -26,4 +26,4 @@ class GuessViewSet(mixins.RetrieveModelMixin,
     """
     queryset = Guess.objects.all()
     serializer_class = GuessSerializer
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
