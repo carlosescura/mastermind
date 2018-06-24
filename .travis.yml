@@ -6,6 +6,10 @@ python:
   - "3.6"
 before_script:
   - docker-compose build
+   # Let's stop postgresql
+  - sudo service postgresql stop
+  # wait for postgresql to shutdown
+  - while sudo lsof -Pi :5432 -sTCP:LISTEN -t; do sleep 1; done
 script:
   - docker-compose run --rm web bash -c "flake8 && python wait_for_postgres.py && pytest"
 
