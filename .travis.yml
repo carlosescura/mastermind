@@ -11,8 +11,7 @@ script:
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    # docker login, tag and push images;
-    echo "should be deployed"
+      echo "should be deployed"
     fi
 
 notifications:
