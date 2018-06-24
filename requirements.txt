@@ -2,6 +2,7 @@
 Django==2.0.6
 django-configurations==2.0
 pytz==2018.4
+gunicorn==19.8.1
 
 # Rest API
 djangorestframework==3.8.2
@@ -14,6 +15,12 @@ psycopg2-binary==2.7.5
 # Developing tools
 flake8==3.5.0
 
+# Testing
+coverage==4.5.1
+pytest==3.6.2
+pytest-django==3.3.2
+model-mommy==1.6.0
+pytest-cov==2.5.1
 
 # Static and Media Storage
 django-storages==1.6.6
