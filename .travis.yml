@@ -11,7 +11,9 @@ before_script:
   # wait for postgresql to shutdown
   - while sudo lsof -Pi :5432 -sTCP:LISTEN -t; do sleep 1; done
 script:
-  - docker-compose run --rm web bash -c "flake8 && python wait_for_postgres.py && pytest"
+  - docker-compose run -e TRAVIS_JOB_ID="$TRAVIS_JOB_ID" -e TRAVIS_BRANCH="$TRAVIS_BRANCH" -e TRAVIS=$TRAVIS
+    -e COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN --rm web bash
+    -c "flake8 && python wait_for_postgres.py && pytest && coveralls"
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
