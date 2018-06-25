@@ -1,6 +1,11 @@
 # Mastermind game
 Mastermind game via REST API done with Django and Django REST Framework.
 
+[![Build Status](https://travis-ci.org/carlosescura/mastermind.svg?branch=master)](https://travis-ci.org/carlosescura/mastermind)
+
+[![Coverage Status](https://coveralls.io/repos/github/carlosescura/mastermind/badge.svg?branch=master)](https://coveralls.io/github/carlosescura/mastermind?branch=master)
+
+
 # Prerequisites
 - Python 3.6 with a new virtual environment (for local testing and development)
 - [Docker](https://docs.docker.com/docker-for-mac/install/) (optional)
@@ -79,6 +84,10 @@ Deployment can be automated via Travis, CircleCI, Jenkins, etc.
 
 Note that production servers (or service provider) must have all the required ENV_VARS configured for a successful deployment
 and ``DJANGO_CONFIGURATION`` should be ``Production``
+
+# Testing
+
+To run code tests, simply use ``pytest`` command
 
 
 # Usage
